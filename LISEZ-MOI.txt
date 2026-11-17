@@ -1,0 +1,34 @@
+Nakhla – réviser le vocabulaire arabe (dictionnaires « سلسلة تعليم اللغة العربية », niveaux 1 à 4)
+
+MISE EN LIGNE
+- Hébergez le dossier tel quel (GitHub Pages, serveur web) et ouvrez index.html.
+- L'application s'installe sur l'écran d'accueil et fonctionne ensuite hors ligne (sw.js).
+- Ouverture directe du fichier index.html (file://) : l'application fonctionne, mais sans installation ni hors ligne.
+
+METTRE À JOUR LE SITE
+- Remplacez tous les fichiers. Le numéro V dans sw.js (nakhla-vXX) doit changer à chaque version :
+  c'est lui qui déclenche la mise à jour sur les appareils où l'app est installée.
+- La progression des joueurs est conservée (elle est liée au texte arabe de chaque mot).
+
+CONTENU
+- index.html                 page
+- css/style.css              styles (téléphone, tablette, ordinateur ; thèmes jour / nuit)
+- js/app.js                  logique de l'application
+- data/vocabulaire.js        vocabulaire chargé par l'application (8 173 mots)
+- data/vocabulaire.json      même vocabulaire au format JSON (copie de référence)
+- sounds/, fonts/, icons/    sons, polices (Nunito, Amiri – licence SIL OFL), icônes
+- manifest.webmanifest, sw.js  installation et mode hors ligne
+
+FORMAT D'UN MOT (dans vocabulaire.json / vocabulaire.js)
+  { "ar": "كَتَبَ / يَكْتُبُ (اكْتُبْ)", "fr": "Écrire / prescrire", "ex": "définition arabe du dictionnaire",
+    "r": "ك ت ب" (racine), "q": 4.8 (fréquence), "t": "ecol" (thème) }
+- Plusieurs traductions sont séparées par « / ».
+- « exf » : traduction française de l'exemple arabe « ex ».
+- « phrases » (fin du fichier) : phrases d'exemple pour l'étape Phrases du parcours,
+  au format [arabe, français, index du mot de la leçon, position du mot clé, mots requis, verset 0/1].
+  Une phrase se débloque quand l'élève a vu tous ses mots requis.
+- Ne modifiez pas l'arabe d'un mot déjà appris : sa progression repartirait de zéro.
+- Les deux fichiers vocabulaire.js et vocabulaire.json doivent rester identiques.
+
+SAUVEGARDE
+- La progression est enregistrée dans le navigateur. Onglet Profil → Sauvegarde : Exporter / Importer.
